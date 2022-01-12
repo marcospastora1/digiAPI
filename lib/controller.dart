@@ -7,6 +7,7 @@ class Controller extends GetxController {
 
  final digiList = [].obs;
  final statusError = false.obs;
+ final load = true.obs;
 
  @override
   onInit(){
@@ -21,6 +22,8 @@ class Controller extends GetxController {
     digiList.addAll(json.decode(response.body));
    }catch(err){
      statusError.value = true;
+   }finally{
+     load.value = false;
    }
   
  

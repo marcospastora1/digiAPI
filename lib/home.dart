@@ -9,44 +9,55 @@ class HomePage extends GetView<Controller> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('DigiAPI'),
         centerTitle: true,
       ),
-      body: Obx((){
-        if(controller.statusError.value){
+      body: Obx(() {
+        if (controller.load.value) {
           return const Center(
-            child: Text('ERRO AO ENTRAR NO DIGIMUNDO..', style: TextStyle(fontSize: 40),),
+            child: CircularProgressIndicator(
+              color: Colors.blue,
+            ),
           );
-        }else{
-          return ListView.builder(
-        itemCount: controller.digiList.length,
-        itemBuilder: (context, index){
-          return Column(
-            children: [
-              const Divider(
-                height: 15,
+        } else if (controller.statusError.value) {
+          return Container(
+            padding: const EdgeInsets.only(left: 30, right: 30),
+            child: const Center(
+              child: Text(
+                'ERRO AO ENTRAR NO DIGIMUNDO..',
+                style: TextStyle(fontSize: 40),
               ),
-              ListTile(
-                onTap: ()=>(Get.to(()=>DigiPage(controller.digiList[index]))),
-                title: Text('${controller.digiList[index]['name']}'),
-                subtitle: Text('Level: ${controller.digiList[index]['level']}'),
-                leading: CircleAvatar(child: Image.network('${controller.digiList[index]['img']}'),),
-
-              )
-            ],
+            ),
           );
-
+        } else {
+          return ListView.builder(
+              itemCount: controller.digiList.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    const Divider(
+                      height: 15,
+                    ),
+                    ListTile(
+                      onTap: () =>
+                          (Get.to(() => DigiPage(controller.digiList[index]))),
+                      title: Text('${controller.digiList[index]['name']}'),
+                      subtitle:
+                          Text('Level: ${controller.digiList[index]['level']}'),
+                      leading: CircleAvatar(
+                        child: Hero(
+                          tag: '${controller.digiList[index]['name']}',
+                          child: Image.network('${controller.digiList[index]['img']}'),
+                        ),
+                      ),
+                    )
+                  ],
+                );
+              });
         }
-        
-        );
-        }
-
       }),
-      
-      
-
     );
-    
   }
 }
