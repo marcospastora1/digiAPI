@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DigiPage extends GetView<Controller> {
-  const DigiPage({ Key? key }) : super(key: key);
+  const DigiPage(this.digiData, { Key? key }) : super(key: key);
+
+  final Map digiData;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+        title: Text('${digiData['name']}'),
       ),
+      body: Center(child: Image.network('${digiData['img']}'),),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:digi_api/controller.dart';
+import 'package:digi_api/digi.page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +28,7 @@ class HomePage extends GetView<Controller> {
                 height: 15,
               ),
               ListTile(
+                onTap: ()=>(Get.to(()=>DigiPage(controller.digiList[index]))),
                 title: Text('${controller.digiList[index]['name']}'),
                 subtitle: Text('Level: ${controller.digiList[index]['level']}'),
                 leading: CircleAvatar(child: Image.network('${controller.digiList[index]['img']}'),),

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.digi_api">
    <application
-        android:label="digi_api"
+        android:label="Digi API"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
