@@ -12,12 +12,16 @@ class DigiPage extends GetView<Controller> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('${digiData!['name']}'),
+        title: Text(
+          '${digiData!['name']}',
+        ),
       ),
       body: Center(
         child: Hero(
           tag: '${digiData!['name']}',
-          child: Image.network('${digiData!['img']}'),
+          child: Image.network(
+            '${digiData!['img']}',
+          ),
         ),
       ),
     );
