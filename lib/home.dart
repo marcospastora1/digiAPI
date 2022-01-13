@@ -42,7 +42,7 @@ class HomePage extends GetView<Controller> {
                     ),
                     ListTile(
                       onTap: () =>
-                          (Get.to(() => DigiPage(controller.digiList[index]))),
+                          (Get.to(() => DigiPage(digiData: controller.digiList[index]))),
                       title: Text('${controller.digiList[index]['name']}'),
                       subtitle:
                           Text('Level: ${controller.digiList[index]['level']}'),
