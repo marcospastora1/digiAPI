@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-class Controller extends GetxController {
+class HomeController extends GetxController {
   final digiList = [].obs;
   final statusError = false.obs;
   final load = true.obs;
@@ -14,7 +14,7 @@ class Controller extends GetxController {
     getDigimon();
   }
 
-  getDigimon() async {
+  Future<void> getDigimon() async {
     try {
       var url = Uri.parse('https://digimon-api.vercel.app/api/digimon');
       http.Response response = await http.get(url);
