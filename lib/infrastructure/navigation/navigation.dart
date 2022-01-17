@@ -5,8 +5,6 @@ import 'routes.dart';
 
 class Nav {
   static List<GetPage> routes = [
-    GetPage(name: Routes.home, 
-    page: ()=> const HomeScreen(),
-    ),
+    GetPage(name: Routes.home, page: () => const HomeScreen())
   ];
 }

@@ -1,6 +1,8 @@
+import 'package:digi_api/presentation/digi_page/controllers/digipage.controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class DigiPage extends StatelessWidget {
+class DigiPage extends GetView<DigiPageController> {
   const DigiPage({this.digiData});
 
   final Map? digiData;
